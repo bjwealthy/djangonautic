@@ -1,0 +1,26 @@
+<!-- We've removed the top portion of this code to the base template -->
+
+{% extends 'base_layout.html'  %}
+
+{% block content %}
+	<h1 style="text-align: center">Gallery List</h1>
+	<hr>
+	<div class="articles">
+		{% for article in articles %}
+			<div class="article">
+				<h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+				<a href="{% url 'articles:detail' slug=article.slug %}" style="text-decoration: underline">{{ "Check Out Product" }}</a>
+				<p>{{ article.date }}</p>
+				<p class="author">added by {{ article.author.username }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+
+<!--
+	Template tags
+for writing python code in html but not outputing any type of data, like for loops
+ for writing python code in html and outputing some type of data
+
+-->

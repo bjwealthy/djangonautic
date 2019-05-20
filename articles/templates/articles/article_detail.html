@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="article-detail">
+	<div class="article">
+	<!--	<a href="{% url 'articles:detail' slug=article.slug %}" style="text-decoration: underline">{{ "Back to Product List" }}</a>  -->
+		<img src="{{ article.thumb.url }}"/>
+		<h2>{{ article.title }}</h2>
+		<p>{{ article.body }}</p>
+		<p>{{ article.date }}</p>
+	</div>
+</div>
+{% endblock %}

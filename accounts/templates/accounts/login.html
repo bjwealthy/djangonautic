@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+	<h1>Login in</h1>
+	<form class="site-form" action="{% url 'accounts:login' %}" method="post">
+		{% csrf_token %}
+		{{ form }}
+		{% if request.GET.next %}	
+<!--    if this query parameter exists,we redirect to its value in the url
+		the reason for this: when we make a post request, the value will come along with the post request, 
+		and it will be accessible in the post request of the login view.
+		and we can send the user back there.
+-->
+			<input type="hidden" name="next" value="{{ request.GET.next }}">
+		{% endif %}
+		<input type="submit" name="" value="Login">
+	</form>
+{% endblock %}
